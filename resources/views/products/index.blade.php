@@ -20,6 +20,7 @@
                 <tr>
                     <th>Sno.</th>
                     <th>Name</th>
+                    <th>Description</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>
@@ -29,10 +30,11 @@
                     <tr>
                         <td>{{ $loop->index + 1 }}</td>
                         <td><a href="products/{{ $product->id }}/show" class="text-dark">{{  $product->name }}</a></td>
+                        <td><a href="products/{{ $product->id }}/show" class="text-dark">{{  $product->description }}</a></td>
                         <td><img src="products/{{ $product->image }}" alt="" class="rounded-circle" width="50" height="50"></td>
                         <td>
                             <a href="/products/{{ $product->id }}/edit" class="btn btn-primary">Edit</a>
-                            <form action="/products/{{ $product->id }}/delete" method="POST" class="d-inline">
+                            <form action="/products/{{ $product->id }}/trash" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Trash</button>
